@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import MainPage from "./MainPage";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Routes,
+} from "react-router-dom";
+import UserOrders from "./components/userComponents/UserOrders";
+import AdminPanel from "./components/AdminPanel";
+import UserBook from "./components/userComponents/UserBook";
+import UserHistory from "./components/userComponents/UserHistory";
+import ManagerPanel from "./components/ManagerPanel";
+
+
+
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/Account" element={<UserOrders />} />
+        <Route path="/AdminPanel" element={<AdminPanel />} />
+        <Route path="/Booking" element={<UserBook />} />
+        <Route path="/UserHistory" element={<UserHistory />} />
+        <Route path="/ManagerPanel" element={<ManagerPanel/>}/>
+      </Routes>
     </div>
   );
-}
 
+}
 export default App;
